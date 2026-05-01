@@ -1,0 +1,150 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== ROOT COLORS ===== */
+:root {
+  --pink: #ff4d88;
+  --blue: #6a5cff;
+  --dark: #0f0f2d;
+  --glass: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== BODY ===== */
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0f2d, #1a1a40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 30%, var(--pink), transparent),
+              radial-gradient(circle at 80% 70%, var(--blue), transparent);
+  animation: moveBg 10s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes moveBg {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-20%, -20%); }
+}
+
+/* ===== CONTAINER (GLASS CARD) ===== */
+.container {
+  width: 90%;
+  max-width: 380px;
+  padding: 30px 25px;
+  border-radius: 20px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  text-align: center;
+
+  animation: fadeIn 1s ease;
+}
+
+/* ===== TITLE (HEY DIVYA ❤️) ===== */
+.title {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== MESSAGE TEXT ===== */
+#typingMessage {
+  font-size: 15px;
+  color: #ddd;
+  line-height: 1.6;
+  text-align: left;
+  min-height: 150px;
+}
+
+/* ===== BUTTON ===== */
+button {
+  margin-top: 25px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+
+  background: linear-gradient(45deg, var(--pink), var(--blue));
+  box-shadow: 0 0 15px rgba(255, 77, 136, 0.5);
+
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 77, 136, 0.8);
+}
+
+/* ===== FLOATING HEARTS ===== */
+.heart {
+  position: absolute;
+  font-size: 18px;
+  color: var(--pink);
+  animation: floatUp linear infinite;
+  opacity: 0.8;
+}
+
+/* ===== FLOATING FLOWERS ===== */
+.flower {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.85;
+  animation: flowerFall linear infinite;
+}
+
+@keyframes flowerFall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  50% {
+    transform: translateY(50vh) translateX(20px) rotate(180deg) scale(1);
+  }
+  100% {
+    transform: translateY(110vh) translateX(-20px) rotate(360deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ===== FADE IN ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
