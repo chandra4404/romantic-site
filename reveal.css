@@ -12,6 +12,7 @@ body {
   overflow: hidden;
   text-align: center;
   position: relative;
+  touch-action: manipulation;
 }
 
 /* ===== DREAMY LIGHT BACKGROUND ===== */
@@ -45,7 +46,7 @@ body::after {
 
 /* ===== TITLE ===== */
 h1 {
-  margin-top: 50px;
+  margin-top: 40px;
   font-size: 28px;
   font-weight: 600;
 
@@ -112,14 +113,14 @@ g[id^=BudGroup] g[id^=BudGroup] g[id^=Bud],
   z-index: 10;
   opacity: 0;
 
-  animation: revealImage 15s ease forwards;
+  animation: revealImage 2s ease forwards;
   animation-delay: 2s;
 }
 
 /* IMAGE STYLE */
 .center-image img {
-  width: 280px;
-  height: 280px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   object-fit: cover;
 
@@ -150,24 +151,7 @@ g[id^=BudGroup] g[id^=BudGroup] g[id^=Bud],
   }
 }
 
-/* ===== SOFT HEART GLOW ===== */
-.center-image::after {
-  content: "";
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  font-size: 24px;
-  animation: pulse 1s infinite;
-}
-
-/* Heart pulse */
-@keyframes pulse {
-  0% { transform: scale(0.8); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.8); opacity: 0.6; }
-}
-
-/* ===== FLOATING LIGHT PARTICLES ===== */
+/* ===== FLOATING PARTICLES ===== */
 .particle {
   position: absolute;
   width: 6px;
@@ -205,4 +189,53 @@ g[id^=BudGroup] g[id^=BudGroup] g[id^=Bud],
   font-size: 15px;
   color: #ff4d88;
   opacity: 1;
+}
+
+/* ===== 📱 MOBILE ===== */
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  svg#flower-frame {
+    height: 70vh;
+  }
+
+  .center-image img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .center-image {
+    top: 55%;
+  }
+
+  .footer p {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+}
+
+/* ===== EXTRA SMALL ===== */
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .center-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  svg#flower-frame {
+    height: 65vh;
+  }
 }
